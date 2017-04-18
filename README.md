@@ -8,7 +8,7 @@ Request URL : http://localhost:8080/dms/upload
 Request method:POST
 Request Parameters:file=<file object>,creator=<creator name>,modifier=<modifier name>
 
-## file metadata service
+## File metadata service
 
 Request URL : http://localhost:8080/dms/fileInfo
 Request method:GET
