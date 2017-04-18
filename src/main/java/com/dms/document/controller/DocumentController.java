@@ -8,6 +8,7 @@ import java.util.Date;
 
 import javax.validation.Valid;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class DocumentController {
     
     public String authenticate(@Valid FileInfoVo fileInfoVo,BindingResult bindingResult,@RequestParam(value = "file", required = false) MultipartFile file) {
 	String response=null;
-    	
+	JSONObject jsonObject = new JSONObject();
          try {
 
              // Get the file and save it somewhere
@@ -56,14 +57,16 @@ public class DocumentController {
              fileInfo.setCreated(new Date());
              File fileObj = new File(CommonConstants.FILE_FOLDER_PATH+RestServiceUtils.getFileNameWithoutExtn(fileInfo.getFileName())+".xml");
              this.customAuthenticationService.createMetadataXML(fileInfo, fileObj);
-             response = "Document uploaded successfully";
-             
-         } catch (IOException e) {
+           
+             jsonObject.put("success", "Document uploaded successfully");
+             response = jsonObject.toJSONString();
+         } catch (Exception e) {
         	 logger.error("error occured while uploading document");
-        	 response = "Document failed to upload";
+        	 jsonObject.put("failure","Document failed to upload");
+        	 response = jsonObject.toJSONString();
              return response;
          }
-    	
+         
     	return response;
     }
 	
