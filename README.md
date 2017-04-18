@@ -1,5 +1,5 @@
-# dms
-## Upload service
+# Document Management System
+## File Upload service
 Create the folder under Disk "C" with the name of "DMS"
 
 Below is the URL for uploading document:
