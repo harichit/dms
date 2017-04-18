@@ -4,7 +4,7 @@ Create the folder under Disk "C" with the name of "DMS"
 
 Below is the URL for uploading document:
 
-Request URL : http://localhost:8080/dms/upload
+Request URL : http://host:port/dms/upload
 
 Request method:POST
 
@@ -18,7 +18,7 @@ modifier=modifier name
 
 ## File metadata service
 
-Request URL : http://localhost:8080/dms/fileInfo
+Request URL : http://host:port/dms/fileInfo
 
 Request method:GET
 
